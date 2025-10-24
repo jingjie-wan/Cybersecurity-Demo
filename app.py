@@ -46,6 +46,10 @@ a.mail-btn:hover { filter: brightness(1.15); }
 
 /* Color chips for response actions (legend) */
 span.badge { padding: 3px 8px; border-radius: 8px; color: #fff; font-size: 12px; }
+
+#MainMenu {
+  visibility: hidden;
+}
 </style>
 """, unsafe_allow_html=True)
 
