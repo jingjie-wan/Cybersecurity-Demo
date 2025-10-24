@@ -14,11 +14,7 @@ st.set_page_config(page_title="Phishing Email Security Dashboard", layout="wide"
 # ---------- Global CSS (bigger KPI + subtle UI) ----------
 st.markdown("""
 <style>
-/* Common selector (newer Streamlit) */
-header[data-testid="stHeader"] a[data-testid="stAppViewSource"] { display: none !important; }
-/* Fallbacks for other builds */
-div[data-testid="stToolbar"] a[aria-label="View source"] { display: none !important; }
-a[aria-label="View source"][href*="github.com"] { display: none !important; }
+div[data-testid="stToolbar"] { display: none !important; }
 </style>
 """, unsafe_allow_html=True)
 
