@@ -14,11 +14,14 @@ st.set_page_config(page_title="Phishing Email Security Dashboard", layout="wide"
 # ---------- Global CSS (bigger KPI + subtle UI) ----------
 st.markdown("""
 <style>
-a[data-testid="stAppViewSource"] {
-    display: none;
-}
+/* Common selector (newer Streamlit) */
+header[data-testid="stHeader"] a[data-testid="stAppViewSource"] { display: none !important; }
+/* Fallbacks for other builds */
+div[data-testid="stToolbar"] a[aria-label="View source"] { display: none !important; }
+a[aria-label="View source"][href*="github.com"] { display: none !important; }
 </style>
 """, unsafe_allow_html=True)
+
 st.markdown("""
 <style>
 .main .block-container { padding-top: 1.0rem; padding-bottom: 1.6rem; }
