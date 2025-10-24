@@ -52,6 +52,10 @@ a.mail-btn:hover { filter: brightness(1.15); }
 
 /* Color chips for response actions (legend) */
 span.badge { padding: 3px 8px; border-radius: 8px; color: #fff; font-size: 12px; }
+
+#MainMenu {
+  visibility: hidden;
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -79,7 +83,7 @@ except Exception as e:
     st.error("Haven't found df_result_demo.csv. Please put the .csv file in the same directory as app.py.")
     st.stop()
 
-# ---------- Sidebar filters (keep only SOC-style controls) ----------
+# --- Sidebar filters: always return (start, end) ---
 st.sidebar.header("Filters")
 
 min_date = pd.to_datetime(df['date']).min()
@@ -87,12 +91,24 @@ max_date = pd.to_datetime(df['date']).max()
 default_start = max_date - timedelta(days=14) if pd.notnull(max_date) else min_date
 
 date_range = st.sidebar.date_input(
-    "Date range", (default_start, max_date),
-    min_value=min_date, max_value=max_date
+    "Date range (Custom Mode)",
+    value=(default_start, max_date),   # keep your defaults
+    min_value=min_date,
+    max_value=max_date,
+    key="date_range",
 )
-if isinstance(date_range, tuple):
+
+# 👇 Show hint only when user picked one date (not a full range)
+if not isinstance(date_range, tuple) or len(date_range) == 1:
+    st.sidebar.caption("💡 Tip: pick a start and end date; selecting one day shows that single day.")
+
+# Normalize to a 2-tuple
+if isinstance(date_range, tuple) and len(date_range) == 2:
     start_date, end_date = date_range
-else:
+elif date_range:  # a single date selected
+    start_date = date_range[0]
+    end_date = date_range[0]
+else:      # empty / None fallback
     start_date, end_date = min_date, max_date
 
 # ---------- Header ----------
