@@ -68,9 +68,9 @@ def load_data(path: str) -> pd.DataFrame:
     return df
 
 try:
-    df = load_data("df_result.csv")
+    df = load_data("df_result_demo.csv")
 except Exception as e:
-    st.error("Haven't found df_result.csv. Please put the .csv file in the same directory as app.py.")
+    st.error("Haven't found df_result_demo.csv. Please put the .csv file in the same directory as app.py.")
     st.stop()
 
 # ---------- Sidebar filters (keep only SOC-style controls) ----------
@@ -170,15 +170,27 @@ st.markdown("---")
 
 # ---------- Combined Time Series with markers ----------
 ts = f[['timestamp','is_threat']].dropna().copy()
-ts['date'] = ts['timestamp'].dt.date
-daily = ts.groupby('date').agg(
-    emails_scanned=('is_threat','count'),
-    threats_detected=('is_threat','sum')
-).reset_index()
+# 自动判断：如果时间窗口 ≤ 48 小时，用小时聚合，否则按天聚合
+window_hours = (eff_end - eff_start).total_seconds() / 3600.0
+
+if window_hours <= 48:
+    ts = ts.set_index('timestamp').sort_index()
+    daily = ts.resample('H').agg(
+        emails_scanned=('is_threat', 'count'),
+        threats_detected=('is_threat', 'sum')
+    ).reset_index().rename(columns={'timestamp': 'date'})
+else:
+    ts['date'] = ts['timestamp'].dt.date
+    daily = ts.groupby('date').agg(
+        emails_scanned=('is_threat','count'),
+        threats_detected=('is_threat','sum')
+    ).reset_index()
+
 
 # amplify differences
-daily['emails_scanned'] = daily['emails_scanned'] * np.random.uniform(0.8, 1.2, len(daily))
-daily['threats_detected'] = daily['threats_detected'] * np.random.uniform(0.5, 2.5, len(daily))
+# amplify differences + keep integers
+daily['emails_scanned'] = (daily['emails_scanned'] * np.random.uniform(0.8, 1.2, len(daily))).round().astype(int)
+daily['threats_detected'] = (daily['threats_detected'] * np.random.uniform(0.5, 2.5, len(daily))).round().astype(int)
 
 
 if not daily.empty:
@@ -198,12 +210,20 @@ if not daily.empty:
         x=daily['date'], y=daily['threats_detected'],
         mode='lines+markers', name='Threats Detected'
     ))
+
+    # 根据聚合方式动态调整标题文字
+    if window_hours <= 48:
+        chart_title = "Hourly Emails & Threats"
+    else:
+        chart_title = "Daily Emails & Threats"
+
     fig.update_layout(
-        title="Daily Emails & Threats (with markers)",
+        title=chart_title,
         margin=dict(l=10,r=10,t=60,b=10),
         height=380,
         legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="left", x=0)
     )
+
     fig.update_yaxes(range=[0, upper])
     st.plotly_chart(fig, use_container_width=True)
 else:
@@ -299,7 +319,7 @@ if not recent.empty:
     def highlight_row(row):
         ra = str(row.get('response_action', ''))
         # pick color if matched, else neutral
-        bg = color_map.get(ra, "#2d3748" if st.get_option("theme.base")=="dark" else "#edf2f7")
+        bg = color_map.get(ra, "#2d3748" if st.get_option("theme.base")=="dark" else "#717275")
         return [f'background-color: {bg}; color: white;' for _ in row]
 
     styled = recent[show_cols].reset_index(drop=True).style.apply(highlight_row, axis=1)
