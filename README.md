@@ -1,5 +1,8 @@
-# Phishing Email Detection System on Streamlit
-An interactive **cybersecurity monitoring dashboard** built with **Streamlit**, designed to visualize phishing email trends, response actions, and user impact.
+# Phishing Email Detection System
+An interactive **cybersecurity monitoring dashboard** built with **Streamlit**, designed to detect anomalies in company email system, suggest response actions, and visualize phishing email trends, response actions, and user impact.
+
+Directly check the demo system with [link](https://cybersecurity-demo-iriswan.streamlit.app)
+
 The app can either:
 
 * Use a local CSV dataset (mocked or exported from an ETL pipeline), or
@@ -10,6 +13,12 @@ The app can either:
 ## Features
 
 ✅ **Real-time KPIs**
+
+✅ **Phishing email detection**
+
+✅ **Response actions**
+
+✅ **Email reminder to top targeted employees**
 
 ✅ **Interactive charts**
 
@@ -85,6 +94,7 @@ streamlit run app.py
 * UI framework (Implementation): **Streamlit**
 * Visualization: **Plotly**
 * Data Handling: **Pandas / NumPy**
+* Modeling (where the prediction labels come from): **BERT (sklearn)**
 * Mail Data Access: **MSAL + Microsoft Graph API**
 * **Python 3.9+**
 
@@ -94,5 +104,5 @@ streamlit run app.py
 
 **Jingjie Wan**
 Data Scientist / AI Developer
-📧 [iriswan0202@gmail.com](mailto:iriswan0202@gmail.com)
-🔗 [LinkedIn](https://www.linkedin.com/in/jingjie-wan-86054a257)
+📧 [Email Me](mailto:iriswan0202@gmail.com)
+🔗 [Let's Connect on LinkedIn](https://www.linkedin.com/in/jingjie-wan-86054a257)
