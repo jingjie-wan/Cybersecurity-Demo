@@ -1,0 +1,207 @@
+id,timestamp,sender,recipient,subject,body,label,reasons,status
+19ba077212b93105,2026-01-08 20:55:09,notifications@fileshare-alerts,zemanticsdemo+finance@gmail.com,Shared Document: “Q4 Finance Summary” (View Required),"Hi,
+
+
+
+A document titled “Q4 Finance Summary” was shared with you.
+
+View details:
+
+hxxps://fileshare.example.invalid/doc/finance-q4
+
+
+
+
+
+— FileShare Notifications
+
+
+
+
+
+X-DEMO-SENDER: notifications@fileshare-alerts",PHISHING,Suspicious link: example.invalid; Sender domain mismatch,PHISHING_DETECTED
+19ba07420fd23765,2026-01-08 20:51:52,it-helpdesk@zemantics-it,zemanticsdemo+underwriting@gmail.com,Action Required: Password Expiring Today,"Hi team,
+
+
+
+Your password is marked as expiring today. Please review the
+
+instructions in the portal:
+
+hxxps://login-zemantics.example.invalid/reset
+
+
+
+— IT Helpdesk
+
+
+
+
+
+X-DEMO-SENDER: it-helpdesk@zemantics-it",PHISHING,Keyword match: password; Keyword match: review; Suspicious link: example.invalid; Sender domain mismatch,PHISHING_DETECTED
+19ba07338ca325aa,2026-01-08 20:51:04,it-helpdesk@zemantics-it,,,"Hi team,
+
+ 
+
+Your password is marked as expiring today. Please review the
+
+instructions in the portal:
+
+hxxps://login-zemantics.example.invalid/reset
+
+ 
+
+— IT Helpdesk
+
+ 
+
+ 
+
+X-DEMO-SENDER: it-helpdesk@zemantics-it",PHISHING,Keyword match: password; Keyword match: review; Suspicious link: example.invalid; Sender domain mismatch,PHISHING_DETECTED
+19b716a7d82c0199,2025-12-30 17:39:11,compliance-hr@zemantics,zemanticsdemo+hr@gmail.com,Action Required – HR Document Review,"Hello,
+
+A document titled “Updated HR Policy – Action Required” has been shared with you
+as part of an internal compliance exercise.
+
+To review the document, please follow the internal review link below:
+https://secure-hr-portal.example/simulation/review
+
+
+Human Resources
+
+
+X-DEMO-SENDER: compliance-hr@zemantics",PHISHING,Keyword match: review,PHISHING_DETECTED
+19b7166b034dabdf,2025-12-30 17:35:02,zemanticsdemo+hr@gmail.com,zemanticsdemo@gmail.com,Reminder: Annual Security Training Window,"Hi all,
+
+Annual security training is now available.
+Please complete by end of month.
+
+Thanks,
+HR Comms
+
+
+
+X-DEMO-SENDER: zemanticsdemo+hr@gmail.com",BENIGN,,NEW
+19b7163d801116fc,2025-12-30 17:31:55,mail-gateway@secure-mail,zemanticsdemo+finance@gmail.com,Attachment Blocked — Re-Enable Access,"An attachment(finance_report0825.pdf) was blocked due to policy. To
+request access, submit a review ticket:
+hxxps://secure-mail.example.invalid/review-request
+
+
+Secure Mail Gateway
+
+
+
+X-DEMO-SENDER: mail-gateway@secure-mail",PHISHING,Keyword match: access; Keyword match: review; Suspicious link: example.invalid; Sender domain mismatch,PHISHING_DETECTED
+19b71600cee72cff,2025-12-30 17:27:47,claims-portal@zemantics,zemanticsdemo+claims@gmail.com,Claim Intake Status Update — Reference #CLM-10482,"Hi,
+
+Status update for Claim #CLM-10482.
+- Documents received
+- Awaiting adjuster assignment
+
+No action required unless missing information is identified.
+
+
+— Claims Portal
+
+
+X-DEMO-SENDER: claims-portal@zemantics",BENIGN,,NEW
+19b715e0876cdfa9,2025-12-30 17:25:35,submissions@broker-network,zemanticsdemo+underwriting@gmail.com,New Submission — Supporting Docs Included,"Hi Underwriting,
+
+Sharing a new submission for review.
+
+Attached: submission_summary.pdf
+Please confirm receipt and expected turnaround time.
+Thanks,
+Broker Network
+
+X-DEMO-SENDER: submissions@broker-network",PHISHING,Keyword match: confirm; Keyword match: review; Sender domain mismatch,PHISHING_DETECTED
+19b715bd691f7ddd,2025-12-30 17:23:11,security-alert@identity-center,zemanticsdemo+it@gmail.com,Security Alert: Unusual Sign-in Attempt Detected,"An unusual sign-in attempt is detected from a new device.
+Review activity in the console:
+hxxps://identity.example.invalid/activity
+
+
+Identity Center
+
+X-DEMO-SENDER: security-alert@identity-center",PHISHING,Keyword match: review; Suspicious link: example.invalid; Sender domain mismatch,PHISHING_DETECTED
+19b71591ded6f3c4,2025-12-30 17:20:13,j.smith@zemantics-support,zemanticsdemo+claims@gmail.com,Quick Task — Review This Policy PDF,"Hi,
+
+Can you review the attached policy update and confirm completion today?
+If you cannot access the attachment, use the secure viewer:
+hxxps://viewer.example.invalid/policy-update
+
+Thanks,
+J. Smith
+
+X-DEMO-SENDER: j.smith@zemantics-support",PHISHING,Keyword match: confirm; Keyword match: access; Keyword match: review; Suspicious link: example.invalid; Suspicious link: viewer.example; Sender domain mismatch,QUARANTINED
+19b7156838e7c6a9,2025-12-30 17:17:22,accounts-payable@vendor-billing,zemanticsdemo+finance@gmail.com,Vendor Payment Update Needed (Urgent),"Hello Finance,
+
+We’ve updated our banking instructions for upcoming invoices.
+Please confirm the updated payment details via the secure message center:
+hxxps://billing.example.invalid/secure-message
+
+
+— Vendor Billing
+Sam Thorpe
+
+X-DEMO-SENDER: accounts-payable@vendor-billing",PHISHING,Keyword match: urgent; Keyword match: payment; Keyword match: bank; Keyword match: invoice; Keyword match: confirm; Suspicious link: example.invalid; Suspicious link: secure-message; Sender domain mismatch,PHISHING_DETECTED
+19b6c5027ceab6d9,2025-12-29 17:52:19,it-helpdesk@zemantics-it,zemanticsdemo+underwriting@gmail.com,Action Required: Password Expiring Today,"Hi team,
+
+Your password is marked as expiring today. Please review the
+instructions in the portal:
+hxxps://login-zemantics.example.invalid/reset
+
+— IT Helpdesk
+
+
+X-DEMO-SENDER: it-helpdesk@zemantics-it",PHISHING,Keyword match: password; Keyword match: review; Suspicious link: example.invalid; Sender domain mismatch,PHISHING_DETECTED
+19b6c4e6fc5c98f0,2025-12-29 17:50:26,notifications@fileshare-alerts,zemanticsdemo+finance@gmail.com,Shared Document: “Q4 Finance Summary” (View Required),"Hi,
+
+A document titled “Q4 Finance Summary” was shared with you.
+View details:
+hxxps://fileshare.example.invalid/doc/finance-q4
+
+
+— FileShare Notifications
+
+
+X-DEMO-SENDER: notifications@fileshare-alerts",PHISHING,Suspicious link: example.invalid; Sender domain mismatch,PHISHING_DETECTED
+19ba123af90d3014,2026-01-09 00:03:37,accounts-payable@vendor-billing,zemanticsdemo+finance@gmail.com,Vendor Payment Update Needed (Urgent),"Hello Finance,
+
+
+
+We’ve updated our banking instructions for upcoming invoices.
+
+Please confirm the updated payment details via the secure message center:
+
+hxxps://billing.example.invalid/secure-message
+
+
+
+
+
+— Vendor Billing
+
+Sam Thorpe
+
+
+
+X-DEMO-SENDER: accounts-payable@vendor-billing",PHISHING,Keyword match: urgent; Keyword match: payment; Keyword match: bank; Keyword match: invoice; Keyword match: confirm; Suspicious link: example.invalid; Suspicious link: secure-message; Sender domain mismatch,
+19ba155672a676ee,2026-01-09 00:57:56,j.smith@zemantics-support,zemanticsdemo+claims@gmail.com,Quick Task — Review This Policy PDF,"Hi,
+
+
+
+Can you review the attached policy update and confirm completion today?
+
+If you cannot access the attachment, use the secure viewer:
+
+hxxps://viewer.example.invalid/policy-update
+
+
+
+Thanks,
+
+J. Smith
+
+
+
+X-DEMO-SENDER: j.smith@zemantics-support",PHISHING,Keyword match: confirm; Keyword match: access; Keyword match: review; Suspicious link: example.invalid; Suspicious link: viewer.example; Sender domain mismatch,
